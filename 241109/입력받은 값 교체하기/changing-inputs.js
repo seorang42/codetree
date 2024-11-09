@@ -1,5 +1,4 @@
 const fs = require("fs");
-let [a, b] = fs.readFileSync(0).toString().split(" ");
-[a, b] = [b, a];
+const [a, b] = fs.readFileSync(0).toString().split(" ");
 
-console.log([a, b].join(" "));
+console.log([b, a].join(" "));
