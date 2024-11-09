@@ -1,4 +1,4 @@
 const fs = require("fs");
-const [x, y] = fs.readFileSync(0).toString().trim().split("-");
+const [_, x, y] = fs.readFileSync(0).toString().trim().split("-");
 
-console.log(`010-${y}-${x}`);
+console.log(`010-${x}-${y}`);
