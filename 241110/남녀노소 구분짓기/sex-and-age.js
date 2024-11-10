@@ -8,9 +8,9 @@ if (gender === 0) {
     } else {
         result = "BOY";
     }
-} else {
+} else if (gender === 1) {
     if (age >= 19) {
-        result = "WOMEN";
+        result = "WOMAN";
     } else {
         result = "GIRL";
     }
