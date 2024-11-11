@@ -1,5 +1,6 @@
 const fs = require("fs");
-const [c, n] = fs.readFileSync(0).toString().trim().split(" ")
+let [c, n] = fs.readFileSync(0).toString().trim().split(" ")
+n = Number(n);
 
 const result = [];
 for (let i = c === "A" ? 1 : n; c === "A" ? i <= n : i >= 1; i += c === "A" ? 1 : -1) {
