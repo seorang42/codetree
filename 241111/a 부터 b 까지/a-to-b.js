@@ -2,7 +2,7 @@ const fs = require("fs");
 let [a, b] = fs.readFileSync(0).toString().trim().split(" ").map(el => Number(el));
 
 const result = [];
-while (a < b) {
+while (a <= b) {
     result.push(a);
     if (a % 2 !== 0) {
         a *= 2;
@@ -10,6 +10,5 @@ while (a < b) {
         a += 3;
     }
 }
-result.push(a);
 
 console.log(result.join(" "));
