@@ -8,6 +8,7 @@ const check369 = (i) => {
     target.forEach(el => {
         if (String(i).includes(el)) check = true;
     })
+    return check;
 }
 
 for (let i = 1; i <= n; i++) {
