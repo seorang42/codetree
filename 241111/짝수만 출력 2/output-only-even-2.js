@@ -1,5 +1,5 @@
 const fs = require("fs");
-let [b, a] = fs.readFileSync(0).toString().trim().split(el => Number(el));
+let [b, a] = fs.readFileSync(0).toString().trim().split(" ").map(el => Number(el));
 
 const result = [];
 while(b >= a) {
