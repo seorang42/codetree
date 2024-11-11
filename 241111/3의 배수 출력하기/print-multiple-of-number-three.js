@@ -6,7 +6,9 @@ let index = 1;
 while (index <= n) {
     if (index % 3 === 0) {
         result.push(index);
+        index += 3;
     }
+    index++;
 }
 
 console.log(result.join(" "));
