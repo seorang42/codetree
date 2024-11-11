@@ -1,8 +1,15 @@
 const fs = require("fs");
 const n = Number(fs.readFileSync(0).toString().trim());
 
-const classCount = Math.floor(n / 2);
-const hallCount = Math.floor(n / 3);
-const wcCount = Math.floor(n / 12);
+let [classCount, hallCount, wcCount] = [0, 0, 0]
+for (let i = 1; i <= n; i++) {
+    if (i % 12 === 0) {
+        wcCount++;
+    } else if (i % 3 === 0) {
+        hallCount++;
+    } else if (i % 2 === 0) {
+        classCount++;
+    }
+}
 
 console.log([classCount, hallCount, wcCount].join(" "));
