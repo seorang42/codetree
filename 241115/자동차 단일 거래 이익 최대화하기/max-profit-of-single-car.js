@@ -5,8 +5,8 @@ const array = input.split(" ").map(el => Number(el));
 let max = 0;
 for (let i = 0; i < n; i++) {
     for (let j = i + 1; j < n; j++) {
-        if (j > i && j - i > max) {
-            max = j - i;
+        if (array[j] > array[i] && array[j] - array[i] > max) {
+            max = array[j] - array[i];
         }
     }
 }
