@@ -1,6 +1,7 @@
 const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split("");
-input[1] = "a";
-input[input.length - 2] = "a";
+const input = fs.readFileSync(0).toString().trim();
 
-console.log(input.join(""));
+const a = input.slice(0, 1) + "a" + input.slice(2);
+const b = a.slice(0, a.length - 2) + "a" + a.slice(a.length - 1);
+
+console.log(b);
