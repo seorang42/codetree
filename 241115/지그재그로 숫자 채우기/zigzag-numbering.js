@@ -9,7 +9,7 @@ for (let i = 0; i < m; i++) {
             array[j][i] = count;
             count++;
         } else {
-            array[n - 1 - j][m - i] = count;
+            array[(n - 1) - j][i] = count;
             count++;
         }
     }
