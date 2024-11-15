@@ -12,13 +12,14 @@ input.forEach((el, index) => {
 const firstArr = arr1.map(el => el.split(" ").map(el => Number(el)));
 const secondArr = arr2.map(el => el.split(" ").map(el => Number(el)));
 
-const answer = Array(n).fill(1).map(el => Array(m).fill(1));
 for (let i = 0; i < n; i++) {
+    const line = [];
     for (let j = 0; j < m; j++) {
         if (firstArr[i][j] === secondArr[i][j]) {
-            answer[i][j] = 0;
+            line.push(0);
+        } else {
+            line.push(1);
         }
     }
+    console.log(line.join(" "));
 }
-
-answer.forEach(el => console.log(el.join(" ")));
