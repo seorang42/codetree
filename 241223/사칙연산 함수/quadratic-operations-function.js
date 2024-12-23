@@ -10,7 +10,9 @@ const calculator = (a, o, c) => {
     } else if (o === "*") {
         console.log(`${a} * ${c} = ${a * c}`);
     } else if (o === "/") {
-        console.log(`${a} / ${c} = ${a / c}`);
+        console.log(`${a} / ${c} = ${parseInt(a / c)}`);
+    } else {
+        console.log("False");
     }
 }
 
