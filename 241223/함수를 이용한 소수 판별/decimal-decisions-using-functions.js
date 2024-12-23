@@ -2,6 +2,9 @@ const fs = require("fs");
 const [a, b] = fs.readFileSync(0).toString().trim().split(" ").map(el => Number(el));
 
 const isPrime = (num) => {
+    if (num === 1) {
+        return false;
+    }
     for (let i = 2; i < num; i++) {
         if (num % i === 0) {
             return false;
