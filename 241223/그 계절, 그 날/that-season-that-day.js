@@ -29,7 +29,7 @@ const checkSeason = (y, m, d) => {
             }
         }
     }
-    if (day[m - 1] >= d) {
+    if (dates[m - 1] >= d) {
         if (m >= 3 && m <= 5) {
             return "Spring";
         } else if (m >= 6 && m <= 8) {
