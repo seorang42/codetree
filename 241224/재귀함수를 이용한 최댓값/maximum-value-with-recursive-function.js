@@ -4,10 +4,11 @@ const length = Number(input[0]);
 const arr = input[1].split(" ").map(el => Number(el));
 
 const calcMax = (index, max) => {
-    if (index === length - 2) {
+    if (index === 0) {
         return max;
     }
-    return arr[index] > arr[index + 1] ? calcMax(index + 1, arr[index]) : calcMax(index + 1, arr[index + 1]);
+    const bigger = Math.max(max, arr[index - 1]);
+    return calcMax(index - 1, bigger);
 }
 
-console.log(calcMax(0, 0));
+console.log(calcMax(length - 1, 0));
