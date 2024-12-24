@@ -3,16 +3,11 @@ const input = fs.readFileSync(0).toString().trim().split("\n");
 const length = Number(input[0]);
 const arr = input[1].split(" ").map(el => Number(el));
 
-let answer = 0;
-const checkNum = (i) => {
-    if (i >= length) {
-        return;
+const calcMax = (index, max) => {
+    if (index === length - 2) {
+        return max;
     }
-    checkNum(i + 1);
-    if (answer < arr[i]) {
-        answer = arr[i];
-    }
+    return arr[index] > arr[index + 1] ? calcMax(index + 1, arr[index]) : calcMax(index + 1, arr[index + 1]);
 }
 
-checkNum(0);
-console.log(answer);
+console.log(calcMax(0, 0));
