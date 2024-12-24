@@ -11,4 +11,4 @@ const calcMax = (index, max) => {
     return calcMax(index - 1, bigger);
 }
 
-console.log(calcMax(length - 1, 0));
+console.log(calcMax(length - 1, arr[length - 1]));
