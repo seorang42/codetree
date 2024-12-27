@@ -15,14 +15,14 @@ arr.forEach(el => {
         areaArr.push([current, current - Number(el[0])]);
         current -= Number(el[0]);
         if (current < offset) {
-            offset = Math.abs(current);
+            offset = current;
         }
     }
 });
 
-const line = Array(highest + offset + 1).fill(0);
+const line = Array(highest - offset + 1).fill(0);
 areaArr.forEach(el => {
-    const [start, end] = el.sort((a, b) => a - b).map(el => el + offset);
+    const [start, end] = el.sort((a, b) => a - b).map(el => el - offset);
     for (let i = start; i < end; i++) {
         line[i]++;
     }
