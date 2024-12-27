@@ -7,5 +7,11 @@ const targetIndex = DAYS.indexOf(target);
 
 const [start, end] = [new Date(2024, m1 - 1, d1).getTime(), new Date(2024, m2 - 1, d2).getTime()];
 const diff = (end - start) / (1000 * 60 * 60 * 24);
-const answer = diff - targetIndex > 0 ? Math.ceil((diff - targetIndex) / 7) + 1 : diff - targetIndex === 0 ? 1 : 0;
+let answer = 0;
+for (let i = 0; i <= diff; i++) {
+    if (i % 7 === targetIndex) {
+        answer++;
+    }
+}
+
 console.log(answer);
