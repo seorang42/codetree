@@ -13,7 +13,7 @@ commandArr.forEach(el => {
             highest = current;
         }
     } else {
-        arr.push([current, current - Number(el[0]) + 1], "L");
+        arr.push([current, current - Number(el[0]) + 1, "L"]);
         current = current - Number(el[0]) + 1;
         if (current < offset) {
             offset = current;
