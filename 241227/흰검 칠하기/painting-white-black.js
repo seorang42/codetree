@@ -32,7 +32,7 @@ arr.forEach(el => {
                 }
             }
         }
-    } else {
+    } else if (el[2] === "L") {
         for (let i = el[1] - offset; i <= el[0] - offset; i++) {
             if (tiles[i].filter(el => el === "W").length < 2 && !tiles[i].includes("G")) {
                 tiles[i].push("W");
