@@ -7,14 +7,14 @@ let [current, highest, offset] = [0, 0, 0];
 const arr = [];
 commandArr.forEach(el => {
     if (el[1] === "R") {
-        arr.push([current, current + Number(el[0])]);
-        current += Number(el[0]);
+        arr.push([current, current + Number(el[0]) - 1]);
+        current = current + Number(el[0]) - 1;
         if (current > highest) {
             highest = current;
         }
     } else {
-        arr.push([current, current - Number(el[0])]);
-        current -= Number(el[0]);
+        arr.push([current, current - Number(el[0]) + 1]);
+        current = current - Number(el[0]) + 1;
         if (current < offset) {
             offset = current;
         }
@@ -24,7 +24,7 @@ commandArr.forEach(el => {
 const tiles = Array(highest - offset + 1).fill(0).map(() => []);
 arr.forEach(el => {
     if (el[0] < el[1]) {
-        for (let i = el[0] - offset; i < el[1] - offset; i++) {
+        for (let i = el[0] - offset; i <= el[1] - offset; i++) {
             if (tiles[i].filter(el => el === "B").length < 2 && !tiles[i].includes("G")) {
                 tiles[i].push("B");
                 if (tiles[i].length === 4) {
@@ -33,7 +33,7 @@ arr.forEach(el => {
             }
         }
     } else {
-        for (let i = el[1] - offset; i < el[0] - offset; i++) {
+        for (let i = el[1] - offset; i <= el[0] - offset; i++) {
             if (tiles[i].filter(el => el === "W").length < 2 && !tiles[i].includes("G")) {
                 tiles[i].push("W");
                 if (tiles[i].length === 4) {
@@ -54,6 +54,6 @@ tiles.forEach(el => {
     } else if (result === "G") {
         g++;
     }
-});
+})
 
 console.log(`${w} ${b} ${g}`);
