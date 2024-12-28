@@ -5,7 +5,7 @@ const [A, B] = fs.readFileSync(0).toString().trim().split("\n").map(el => el.spl
 const board = Array(2000).fill(0).map(() => Array(2000).fill(0));
 
 const [ax1, ay1, ax2, ay2] = A;
-for (let i = ax1; i < ax2, 2000; i++) {
+for (let i = ax1; i < ax2; i++) {
     for (let j = ay1; j < ay2; j++) {
         board[i][j] = 1;
     }
