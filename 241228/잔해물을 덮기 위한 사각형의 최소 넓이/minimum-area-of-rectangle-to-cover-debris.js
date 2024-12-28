@@ -17,5 +17,7 @@ for (let i = bx1; i < bx2; i++) {
     }
 }
 const [startX1, startX2] = [board.findIndex(el => el.includes(1)), board.findLastIndex(el => el.includes(1))];
-const [startY1, startY2] = [board[startX1].indexOf(1), board[startX2].lastIndexOf(1)];
-console.log((startX2 - startX1 + 1) * (startY2 - startY1 + 1));
+const [startY1, startY2] = ![startX1, startX2].includes(-1) ? [board[startX1].indexOf(1), board[startX2].lastIndexOf(1)] : [-1, -1];
+
+const answer = ![startX1, startX2, startY1, startY2].includes(-1) ? (startX2 - startX1 + 1) * (startY2 - startY1 + 1) : 0;
+console.log(answer);
