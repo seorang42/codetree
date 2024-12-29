@@ -5,11 +5,7 @@ const arr = input.slice(1);
 
 let [count, max] = [0, 0];
 for (let i = 0; i < n; i++) {
-    if (i === 0) {
-        count++;
-    }
-    
-    if (arr[i] * arr[i - 1] < 0) {
+    if (arr[i] * arr[i - 1] < 0 && i !== 0) {
         if (count > max) {
             max = count;
             count = 1;
