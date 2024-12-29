@@ -11,8 +11,7 @@ arr.forEach(el => {
     if (devArr[el[1] - 1] === 1 && devArr[el[2] - 1] === 1) {
         shakeArr[el[1] - 1]++;
         shakeArr[el[2] - 1]++;
-    }
-    if (devArr[el[1] - 1] === 1 && devArr[el[2] - 1] === 0) {
+    } else if (devArr[el[1] - 1] === 1 && devArr[el[2] - 1] === 0) {
         if (shakeArr[el[1] - 1] < 2) {
             shakeArr[el[1] - 1]++;
             devArr[el[2] - 1] = 1;
