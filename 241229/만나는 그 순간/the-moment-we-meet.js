@@ -21,7 +21,10 @@ let answer = -1;
 for (let i = 0; i < Math.max(newA.length, newB.length); i++) {
     if (newA[i]) a = a + (newA[i] === "R" ? 1 : -1);
     if (newB[i]) b = b + (newB[i] === "R" ? 1 : -1);
-    if (a === b && answer === -1) answer = i + 1;
+    if (a === b && answer === -1) {
+        answer = i + 1;
+        break;
+    }
 }
 
 console.log(answer);
