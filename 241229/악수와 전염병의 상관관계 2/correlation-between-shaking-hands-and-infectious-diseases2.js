@@ -12,12 +12,12 @@ arr.forEach(el => {
         shakeArr[el[1] - 1]++;
         shakeArr[el[2] - 1]++;
     } else if (devArr[el[1] - 1] === 1 && devArr[el[2] - 1] === 0) {
-        if (shakeArr[el[1] - 1] < 2) {
+        if (shakeArr[el[1] - 1] < K) {
             shakeArr[el[1] - 1]++;
             devArr[el[2] - 1] = 1;
         }
     } else if (devArr[el[1] - 1] === 0 && devArr[el[2] - 1] === 1) {
-        if (shakeArr[el[2] - 1] < 2) {
+        if (shakeArr[el[2] - 1] < K) {
             shakeArr[el[2] - 1]++;
             devArr[el[1] - 1] = 1;
         }
