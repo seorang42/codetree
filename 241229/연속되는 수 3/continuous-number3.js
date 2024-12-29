@@ -8,6 +8,7 @@ for (let i = 0; i < n; i++) {
     if (i === 0) {
         count++;
     }
+    
     if (arr[i] * arr[i - 1] < 0) {
         if (count > max) {
             max = count;
@@ -16,10 +17,9 @@ for (let i = 0; i < n; i++) {
     } else {
         count++;
     }
-    if (i === n - 1) {
-        if (count > max) {
-            max = count;
-        }
+
+    if (i === n - 1 && count > max) {
+        max = count;
     }
 }
 
