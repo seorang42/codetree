@@ -7,7 +7,6 @@ let [count, answer] = [0, 0];
 for (let i = 0; i < n; i++) {
     if (i === 0) {
         count++;
-        continue;
     }
     if (arr[i] === arr[i - 1]) {
         count++;
