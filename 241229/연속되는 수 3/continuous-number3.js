@@ -8,8 +8,8 @@ for (let i = 0; i < n; i++) {
     if (arr[i] * arr[i - 1] < 0 && i !== 0) {
         if (count > max) {
             max = count;
-            count = 1;
         }
+        count = 1;
     } else {
         count++;
     }
