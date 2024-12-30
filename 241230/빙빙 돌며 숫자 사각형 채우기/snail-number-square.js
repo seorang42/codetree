@@ -26,4 +26,6 @@ for (let i = 0; i < n * m; i++) {
     count++;
 }
 
-console.log(arr);
+arr.forEach(el => {
+    console.log(el.join(" "));
+});
