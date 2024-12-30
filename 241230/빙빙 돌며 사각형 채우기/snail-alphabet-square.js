@@ -4,7 +4,7 @@ const [dx, dy] = [[1, 0, -1, 0], [0, 1, 0, -1]];
 
 const arr = Array(n).fill("").map(() => Array(m).fill(""));
 const inRange = (x, y) => {
-    return x >= 0 && x < m && y >= 0 && y < m ? true : false;
+    return x >= 0 && x < m && y >= 0 && y < n ? true : false;
 }
 
 let letter = "A";
