@@ -29,9 +29,9 @@ let answer = 0;
 while (true) {
     answer++;
     if (map[y][x] === "/") {
-        dir = dir % 2 === 0 ? (dir + 3) % 4 : (dir + 1) % 1;
+        dir = dir % 2 === 0 ? (dir + 3) % 4 : (dir + 1) % 4;
     } else if (map[y][x] === "\\") {
-        dir = dir % 2 === 0 ? (dir + 1) % 4 : (dir + 3) % 1;
+        dir = dir % 2 === 0 ? (dir + 1) % 4 : (dir + 3) % 4;
     }
     if (inRange(x + dx[dir], y + dy[dir])) {
         [x, y] = [x + dx[dir], y + dy[dir]];
