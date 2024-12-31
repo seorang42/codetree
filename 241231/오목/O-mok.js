@@ -40,7 +40,7 @@ for (let i = 0; i < 19; i++) {
             }
         }
 
-        // 대각선으로 같을 때
+        // 대각선 오른쪽으로 같을 때
         if (winner === 0 && board[i][j] === board[i + 1][j + 1]) {
             for (let k = 2; k < 5; k++) {
                 if (i + k >= 19 || j + k >= 19) {
@@ -52,6 +52,22 @@ for (let i = 0; i < 19; i++) {
                 if (k === 4 && board[i][j] === board[i + k][j + k]) {
                     winner = board[i][j];
                     location = [i + 3, j + 3];
+                }
+            }
+        }
+
+        // 대각선 왼쪽으로 같을 때
+        if (winner === 0 && board[i][j] === board[i + 1][j - 1]) {
+            for (let k = 2; k < 5; k++) {
+                if (i + k >= 19 || j - k < 0) {
+                    break;
+                }
+                if (board[i][j] !== board[i + k][j - k]) {
+                    break;
+                }
+                if (k === 4 && board[i][j] === board[i + k][j - k]) {
+                    winner = board[i][j];
+                    location = [i + 3, j - 1];
                 }
             }
         }
