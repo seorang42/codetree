@@ -12,7 +12,8 @@ for (let i = 0; i < N; i++) {
                 if (sum > answer) answer = sum;
             }
         }
-    } else if (i < N - 1) {
+    }
+    if (i < N - 1) {
         for (let k = 0; k < N - 2; k++) {
             for (let j = i + 1; j < N; j++) {
                 for (let l = 0; l < N - 2; l++) {
