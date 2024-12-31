@@ -6,9 +6,10 @@ const arr = input.slice(1).map(el => Number(el));
 const checkCarry = (x, y, z) => {
     const [a, b, c] = [String(x).split("").reverse(), String(y).split("").reverse(), String(z).split("").reverse()];
     for (let i = 0; i < Math.max(a.length, b.length, c.length); i++) {
-        if (Math.max(a[i], 0) + Math.max(b[i], 0) + Math.max(c[i], 0) >= 10) {
-            return false;
-        }
+        const A = a[i] !== undefined ? Number(a[i]) : 0;
+        const B = b[i] !== undefined ? Number(b[i]) : 0;
+        const C = c[i] !== undefined ? Number(c[i]) : 0;
+        if (A + B + C >= 10) return false;
     }
     return true;
 }
