@@ -4,6 +4,10 @@ const board = fs.readFileSync(0).toString().trim().split("\n").map(el => el.spli
 let [winner, location] = [0, []];
 for (let i = 0; i < 19; i++) {
     for (let j = 0; j < 19; j++) {
+        if (i + 1 >= 19 && j + 1 >= 19) {
+            break;
+        }
+
         // 가로로 같을 때
         if (winner === 0 && board[i][j] === board[i][j + 1]) {
             for (let k = j + 2; k < j + 5; k++) {
