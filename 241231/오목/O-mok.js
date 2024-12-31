@@ -82,4 +82,4 @@ for (let i = 0; i < 19; i++) {
 }
 
 console.log(winner);
-console.log(location.join(" "));
+winner !== 0 && console.log(location.join(" "));
