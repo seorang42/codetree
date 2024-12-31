@@ -7,7 +7,10 @@ for (let i = 0; i < 19; i++) {
         // 가로로 같을 때
         if (winner === 0 && board[i][j] === board[i][j + 1]) {
             for (let k = j + 2; k < j + 5; k++) {
-                if (board[i][j] !== board[i][k] || k > 19) {
+                if (k >= 19) {
+                    break;
+                }
+                if (board[i][j] !== board[i][k]) {
                     break;
                 }
                 if (k === j + 4 && board[i][j] === board[i][k]) {
@@ -20,7 +23,10 @@ for (let i = 0; i < 19; i++) {
         // 세로로 같을 때
         if (winner === 0 && board[i][j] === board[i + 1][j]) {
             for (let k = i + 2; k < i + 5; k++) {
-                if (board[i][j] !== board[k][j] || k > 19) {
+                if (k >= 19) {
+                    break;
+                }
+                if (board[i][j] !== board[k][j]) {
                     break;
                 }
                 if (k === i + 4 && board[i][j] === board[k][j]) {
@@ -33,7 +39,10 @@ for (let i = 0; i < 19; i++) {
         // 대각선으로 같을 때
         if (winner === 0 && board[i][j] === board[i + 1][j + 1]) {
             for (let k = 2; k < 5; k++) {
-                if (board[i][j] !== board[i + k][j + k] || i + k > 19 || j + k > 19) {
+                if (i + k >= 19 || j + k >= 19) {
+                    break;
+                }
+                if (board[i][j] !== board[i + k][j + k]) {
                     break;
                 }
                 if (k === 4 && board[i][j] === board[i + k][j + k]) {
