@@ -5,20 +5,28 @@ const arr = input.slice(1).map(el => el.split(" ")).sort((a, b) => a[0] - b[0]);
 const [first, last] = [Number(arr[0][0]), Number(arr[arr.length - 1][0])];
 
 let answer = 0;
-for (let i = first; i <= last - K + 1; i++) {
-    const [start, end] = [i, i + K];
+if (last - first <= K) {
     let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (Number(arr[i][0]) < start) {
-            continue;
+    arr.forEach(el => {
+        sum += el[1] === "G" ? 1 : 2;
+    });
+    answer = sum;
+} else {
+    for (let i = first; i <= last - K + 1; i++) {
+        const [start, end] = [i, i + K];
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (Number(arr[i][0]) < start) {
+                continue;
+            }
+            if (Number(arr[i][0]) > end) {
+                break;
+            }
+            sum += arr[i][1] === "G" ? 1 : 2;
         }
-        if (Number(arr[i][0]) > end) {
-            break;
+        if (sum > answer) {
+            answer = sum;
         }
-        sum += arr[i][1] === "G" ? 1 : 2;
-    }
-    if (sum > answer) {
-        answer = sum;
     }
 }
 
