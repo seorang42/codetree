@@ -5,7 +5,10 @@ const arr = input[1].split(" ").map(el => Number(el));
 
 let answer = 0;
 for (let i = 0; i <= n - k; i++) {
-    const sum = arr[i] + arr[i + 1] + arr[i + 2];
+    let sum = 0;
+    for (let j = i; j < i + k; j++) {
+        sum += arr[j];
+    }
     if (sum > answer) answer = sum;
 }
 
