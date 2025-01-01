@@ -22,7 +22,7 @@ for (let i = 0; i <= 100; i++) {
                         H++;
                     }
                 }
-                if ((G > 1 && H > 1 && G === H) || (G === 0 && H > 1) || (G > 1 && H === 0)) {
+                if ((G >= 1 && H >= 1 && G === H) || (G === 0 && H > 1) || (G > 1 && H === 0)) {
                     [start, end] = [i, j];
                     if (end - start > answer) {
                         answer = end - start;
