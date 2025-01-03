@@ -11,8 +11,14 @@ const checkSB = (answer) => {
         inputArr.forEach(((el, index) => {
             if (el === answerArr[index]) {
                 s++;
-            } else if (answerArr.includes(el)) {
-                b++;
+            } else {
+                let flag = false;
+                answerArr.forEach((e, i) => {
+                    if (i !== index && e === el) {
+                        flag = true;
+                    }
+                });
+                if (flag) b++;
             }
         }));
         if (JSON.stringify([s, b]) !== JSON.stringify([arr[i][1], arr[i][2]])) {
