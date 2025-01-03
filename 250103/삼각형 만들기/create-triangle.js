@@ -13,30 +13,32 @@ for (let i = 0; i < N - 2; i++) {
             let [width, height] = [0, 0];
             if (x1 === x2) {
                 height = Math.abs(y1 - y2);
-            }
-            if (x2 === x3) {
-                if (Math.abs(y2 - y3) > height) {
-                    height = Math.abs(y2 - y3);
-                }
-            }
-            if (x3 === x1) {
-                if (Math.abs(y3 - y1) > height) {
-                    height = Math.abs(y3 - y1);
-                }
-            }
-            if (y1 === y2) {
-                width = Math.abs(x1 - x2);
-            }
-            if (y2 === y3) {
-                if (Math.abs(y2 - y3) > width) {
+                if (y2 === y3) {
                     width = Math.abs(x2 - x3);
                 }
-            }
-            if (y3 === y1) {
-                if (Math.abs(y3 - y1) > width) {
+                else if (y3 === y2) {
                     width = Math.abs(x3 - x1);
                 }
             }
+            else if (x2 === x3) {
+                height = Math.abs(y2 - y3);
+                if (y3 === y1) {
+                    width = Math.abs(x3 - x1);
+                }
+                else if (y1 === y2) {
+                    width = Math.abs(x1 - x2);
+                }
+            }
+            else if (x3 === x1) {
+                height = Math.abs(y3 - y1);
+                if (y1 === y2) {
+                    width = Math.abs(x1 - x2);
+                }
+                else if (y2 === y3) {
+                    width = Math.abs(x2 - x3);
+                }
+            }
+
             if (width !== 0 && height !== 0) {
                 const area = width * height;
                 if (area > answer) {
