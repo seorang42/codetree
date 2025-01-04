@@ -3,33 +3,34 @@ const input = fs.readFileSync(0).toString().trim().split("\n");
 const [N, M, D, S] = input[0].split(" ").map(el => Number(el));
 const eatArr = input.slice(1, D + 1).map(el => el.split(" ").map(el => Number(el)));
 const sickArr = input.slice(D + 1).map(el => el.split(" ").map(el => Number(el)));
+const sickPersonArr = sickArr.map(el => el[0]);
 
-const sickPersons = sickArr.map(el => el[0]).sort((a, b) => a - b);
-const rottenCheeze = [];
+let answer = 0;
 for (let i = 1; i <= M; i++) {
-    const sickPersonArr = [];
-    for (let j = 0; j < S; j++) {
-        const [sickPerson, sickTime] = sickArr[j];
-        for (let k = 0; k < D; k++) {
-            const [person, czNum, time] = eatArr[k];
-            if (person === sickPerson && time < sickTime && i === czNum) {
-                sickPersonArr.push(person);
+    const ateCheezePerson = [];
+    for (let j = 0; j < D; j++) {
+        const [person, czNum, time] = eatArr[j];
+        if (czNum === i) {
+            for (let k = 0; k < S; k++) {
+                const [sickPerson, sickTime] = sickArr[k];
+                if (sickPerson === person && time < sickTime && !ateCheezePerson.includes(person)) {
+                    ateCheezePerson.push(person);
+                }
             }
         }
     }
-    if (JSON.stringify(sickPersonArr.sort((a, b) => a - b)) === JSON.stringify(sickPersons)) {
-        rottenCheeze.push(i);
-    }
-}
-
-const answer = [];
-for (let i = 0; i < D; i++) {
-    const [person, czNum, time] = eatArr[i];
-    if (rottenCheeze.includes(czNum)) {
-        if (!answer.includes(person)) {
-            answer.push(person);
+    const isRotten = JSON.stringify(sickPersonArr.sort((a, b) => a - b)) === JSON.stringify(ateCheezePerson.sort((a, b) => a - b));
+    if (isRotten) {
+        const sickResult = [];
+        for (let j = 0; j < D; j++) {
+            const [person, czNum, time] = eatArr[j];
+            if (czNum === i && !sickResult.includes(person)) {
+                sickResult.push(person);
+            }
         }
+        const count = sickResult.length;
+        if (count > answer) answer = count;
     }
 }
 
-console.log(answer.length);
+console.log(answer);
