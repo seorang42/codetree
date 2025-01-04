@@ -5,7 +5,7 @@ const arr = input.slice(1).map(el => el.split(" ").map(el => Number(el)));
 
 let answer = 0;
 for (let i = 0; i < N; i++) {
-    const discountedArr = [...arr];
+    const discountedArr = arr.map(el => [...el]);
     discountedArr[i][0] /= 2;
     discountedArr.sort((a, b) => (a[0] + a[1]) - (b[0] + b[1]));
 
