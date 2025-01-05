@@ -3,30 +3,22 @@ const [start, end] = fs.readFileSync(0).toString().trim().split(" ").map(el => N
 
 let answer = 0;
 for (let i = start; i <= end; i++) {
-    const numArr = String(i).split("").map(el => Number(el));
-    let [num1, num2] = [-1, -1];
-    let [num1Count, num2Count] = [0, 0];
-    for (let j = 0; j < numArr.length; j++) {
-        if (num1 === -1) {
-            num1 = numArr[j];
-            num1Count++;
-        } else if (numArr[j] !== num1 && num2 === -1) {
-            num2 = numArr[j];
-            num2Count++;
-        } else if (numArr[j] === num1) {
-            num1Count++;
-        } else if (numArr[j] === num2) {
-            num2Count++;
-        } else {
-            continue;
-        }
+    const num = String(i).split("").map(el => Number(el));
+    const includedNum = [];
+    num.forEach(el => {
+        if (!includedNum.includes(el)) includedNum.push(el);
+    });
 
-        if (num1 !== -1 && num2 !== -1 && num1Count !== 0 && num2Count !== 0) {
-            if (num1Count === 1 && num2Count >= 2) {
-                answer++;
-            } else if (num2Count === 1 && num1Count >= 2) {
-                answer++;
-            }
+    if (includedNum.length === 2) {
+        let count = [0, 0];
+        includedNum.forEach((el, index) => {
+            const nums = num.filter(e => e === el).length;
+            count[index] = nums;
+        });
+        if (count[0] === 1 && count[1] >= 2) {
+            answer++;
+        } else if (count[1] === 1 && count[0] >= 2) {
+            answer++;
         }
     }
 }
