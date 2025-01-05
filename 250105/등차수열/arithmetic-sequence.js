@@ -6,10 +6,14 @@ const [lowest, highest] = [arr[0], arr[arr.length - 1]];
 
 let answer = 0;
 for (let i = lowest + 1; i < highest; i++) {
+    let count = 0;
     for (let j = 0; j < n - 1; j++) {
         for (let k = j + 1; k < n; k++) {
-            if (i - arr[j] === arr[k] - i) answer++;
+            if (i > arr[j] && arr[k] > i && i - arr[j] === arr[k] - i) count++;
         }
+    }
+    if (count > answer) {
+        answer = count;
     }
 }
 
