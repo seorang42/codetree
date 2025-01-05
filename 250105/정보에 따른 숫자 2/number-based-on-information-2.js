@@ -11,14 +11,14 @@ arr.forEach(el => {
 let answer = 0;
 for (let i = a; i <= b; i++) {
     let [sDis, nDis] = [Infinity, Infinity];
-    for (let j = 0; j <= line.length; j++) {
-        if (line[j] === "S" && Math.abs(j - i) < sDis) {
-            sDis = Math.abs(j - i);
+    for (let j = 0; j < line.length; j++) {
+        if (line[j] === "S") {
+            sDis = Math.min(Math.abs(j - i), sDis);
         }
     }
-    for (let j = 0; j <= line.length; j++) {
-        if (line[j] === "N" && Math.abs(j - i) < nDis) {
-            nDis = Math.abs(j - i);
+    for (let j = 0; j < line.length; j++) {
+        if (line[j] === "N") {
+            nDis = Math.min(Math.abs(j - i), nDis);
         }
     }
     if (sDis <= nDis) answer++;
