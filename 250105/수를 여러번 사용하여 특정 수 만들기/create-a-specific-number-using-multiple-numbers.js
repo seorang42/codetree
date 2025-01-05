@@ -7,7 +7,7 @@ let answer = 0;
 for (let i = 0; i <= maxA; i++) {
     for (let j = 0; j <= maxB; j++) {
         const sum = A * i + B * j;
-        if (sum < C && sum > answer) answer = sum;
+        if (sum <= C && sum > answer) answer = sum;
     }
 }
 
