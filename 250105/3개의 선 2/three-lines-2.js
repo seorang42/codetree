@@ -9,7 +9,7 @@ for (let i = 0; i <= 8; i++) {
     for (let j = i + 1; j <= 9; j++) {
         for (let k = j + 1; k <= 10; k++) {
             for (let l = 0; l < N; l++) {
-                const count = arr.filter(el => ![i, j, k].includes(el[1]));
+                const count = arr.filter(el => ![i, j, k].includes(el[1])).length;
                 if (count === 0) answer = 1;
             }
         }
@@ -20,7 +20,7 @@ for (let i = 0; i <= 8; i++) {
     for (let j = i + 1; j <= 9; j++) {
         for (let k = j + 1; k <= 10; k++) {
             for (let l = 0; l < N; l++) {
-                const count = arr.filter(el => ![i, j, k].includes(el[0]));
+                const count = arr.filter(el => ![i, j, k].includes(el[0])).length;
                 if (count === 0) answer = 1;
             }
         }
