@@ -9,8 +9,8 @@ for (let i = 0; i <= 8; i++) {
     for (let j = i + 1; j <= 9; j++) {
         for (let k = j + 1; k <= 10; k++) {
             for (let l = 0; l < N; l++) {
-                const count = arr.filter(el => [i, j, k].includes(el[1]));
-                if (count === N) answer = 1;
+                const count = arr.filter(el => ![i, j, k].includes(el[1]));
+                if (count === 0) answer = 1;
             }
         }
     }
@@ -20,8 +20,8 @@ for (let i = 0; i <= 8; i++) {
     for (let j = i + 1; j <= 9; j++) {
         for (let k = j + 1; k <= 10; k++) {
             for (let l = 0; l < N; l++) {
-                const count = arr.filter(el => [i, j, k].includes(el[0]));
-                if (count === N) answer = 1;
+                const count = arr.filter(el => ![i, j, k].includes(el[0]));
+                if (count === 0) answer = 1;
             }
         }
     }
@@ -30,8 +30,8 @@ for (let i = 0; i <= 8; i++) {
 for (let i = 0; i <= 9; i++) {
     for (let j = i + 1; j <= 10; j++) {
         for (let k = 0; k <= 10; k++) {
-            const remain = [...arr].filter(el => [i, j].includes(el[1]));
-            const result = [...remain].filter(el => el[0] === k);
+            const remain = [...arr].filter(el => ![i, j].includes(el[1]));
+            const result = [...remain].filter(el => el[0] !== k);
             if (result.length === 0) answer = 1;
         }
     }
@@ -40,8 +40,8 @@ for (let i = 0; i <= 9; i++) {
 for (let i = 0; i <= 9; i++) {
     for (let j = i + 1; j <= 10; j++) {
         for (let k = 0; k <= 10; k++) {
-            const remain = [...arr].filter(el => [i, j].includes(el[0]));
-            const result = [...remain].filter(el => el[1] === k);
+            const remain = [...arr].filter(el => ![i, j].includes(el[0]));
+            const result = [...remain].filter(el => el[1] !== k);
             if (result.length === 0) answer = 1;
         }
     }
