@@ -20,10 +20,11 @@ for (let i = start; i <= end; i++) {
         } else {
             continue;
         }
-        if (num1Count !== 0 && num2Count !== 0) {
-            if (num1Count === 1 && num2Count !== 1) {
+
+        if (num1 !== -1 && num2 !== -1 && num1Count !== 0 && num2Count !== 0) {
+            if (num1Count === 1 && num2Count >= 2) {
                 answer++;
-            } else if (num2Count === 1 && num1Count !== 1) {
+            } else if (num2Count === 1 && num1Count >= 2) {
                 answer++;
             }
         }
