@@ -9,7 +9,7 @@ arr.forEach(el => {
 });
 
 let answer = 0;
-for (let i = a; i <= b; i++) {
+for (let i = a - 1; i <= b - 1; i++) {
     let [sDis, nDis] = [Infinity, Infinity];
     for (let j = 0; j < line.length; j++) {
         if (line[j] === "S") {
