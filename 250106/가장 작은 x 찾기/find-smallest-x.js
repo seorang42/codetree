@@ -4,7 +4,7 @@ const n = Number(input[0]);
 const arr = input.slice(1).map(el => el.split(" ").map(el => Number(el)));
 const end = (arr[0][1] / 2).toFixed(1);
 
-let answer = 0;
+let answer = Infinity;
 for (let i = 1; i <= end; i++) {
     let flag = true;
     for (let j = 0; j < n; j++) {
@@ -13,8 +13,9 @@ for (let i = 1; i <= end; i++) {
             break;
         }
     }
-    if (flag) {
+    if (flag && i < answer) {
         answer = i;
+        break;
     }
 }
 
